@@ -11,7 +11,15 @@ Single-page React expense tracker (Vite + React 19). This is a course starter: t
 
 ## Layout & conventions
 - `src/main.jsx` — entrypoint (React `StrictMode`), imported by `index.html`.
-- `src/App.jsx` — the entire app: all state, logic, and UI live in this one component. No router, backend, or persistence.
+- `src/App.jsx` — owns the top-level `transactions` state and the `handleAdd` callback; renders the three child components below. No router, backend, or persistence.
+- `src/Summary.jsx` — receives `transactions`, computes `totalIncome` / `totalExpenses` / `balance`, renders the summary cards.
+- `src/TransactionForm.jsx` — owns its own form-input state; converts `amount` with `Number(...)` and calls `onAdd(transaction)`. Receives `categories`.
+- `src/TransactionList.jsx` — owns its own filter state; receives `transactions` and `categories`, renders filters + table.
+- `categories` is defined in `App.jsx` and passed down as a prop; there is no shared constants/store module.
 - Plain JSX, no TypeScript, no tests / test runner configured. Do not attempt to run a test suite.
 - Transaction data starts as an in-memory `useState` seed array; changes are lost on reload.
-- `amount` is a **number** on every transaction. The add-form keeps its input as a string and converts with `Number(amount)` on submit; keep new transactions numeric so the totals reduce correctly.
+- `amount` is a **number** on every transaction. The add-form keeps its input as a string and converts with `Number(amount)` on submit; keep new transactions numeric so the totals reduce correctly. (The README's "intentional bug" — string amounts concatenating in the totals — has been fixed.)
+
+## Git
+- `origin` is `https://github.com/linwaihung55/expense-tracker-starter.git` (the README links the original course repo; do not push there).
+- GitHub CLI is installed at `C:\Program Files\GitHub CLI\gh.exe` but is not always on `PATH`; prepend it when calling `gh`.
