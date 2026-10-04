@@ -14,4 +14,4 @@ Single-page React expense tracker (Vite + React 19). This is a course starter: t
 - `src/App.jsx` — the entire app: all state, logic, and UI live in this one component. No router, backend, or persistence.
 - Plain JSX, no TypeScript, no tests / test runner configured. Do not attempt to run a test suite.
 - Transaction data starts as an in-memory `useState` seed array; changes are lost on reload.
-- Amounts are stored as **strings**. The totals in `App.jsx` reduce over those strings, so `+` concatenates instead of summing — this is the known intentional bug. Use `Number(...)` when fixing.
+- `amount` is a **number** on every transaction. The add-form keeps its input as a string and converts with `Number(amount)` on submit; keep new transactions numeric so the totals reduce correctly.
