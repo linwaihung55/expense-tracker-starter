@@ -1,3 +1,16 @@
+:root {
+  --bg: #101613;
+  --surface: #171F1A;
+  --surface-raised: #1D2822;
+  --ink: #E8EDE9;
+  --muted: #8A978E;
+  --hairline: #2A3630;
+  --accent: #3E9E74;
+  --accent-hover: #348863;
+  --income: #4CC38A;
+  --expense: #E0654A;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +18,9 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #333;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }

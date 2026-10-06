@@ -20,10 +20,14 @@ function CategoryChart({ transactions }) {
       <h2>Spending by Category</h2>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip formatter={(value) => `$${value}`} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#2A3630" />
+          <XAxis dataKey="name" tick={{ fill: '#8A978E' }} stroke="#2A3630" />
+          <YAxis tick={{ fill: '#8A978E' }} stroke="#2A3630" />
+          <Tooltip
+            formatter={(value) => `$${value}`}
+            contentStyle={{ background: '#1D2822', border: '1px solid #2A3630', borderRadius: 8, color: '#E8EDE9' }}
+            labelStyle={{ color: '#E8EDE9' }}
+          />
           <Bar dataKey="value" name="Spent">
             {data.map((entry, index) => (
               <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
